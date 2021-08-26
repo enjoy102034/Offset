@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>前端16-3 頁面動態捲動3</title>
+<link href="css/style.css" rel="stylesheet">
+<link href="css/img_effect.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css" media="screen" />
+<style>
+div.top {
+	position: fixed;
+	right: 40px;
+	bottom: -100px;
+	transition: bottom 0.5s;
+}
+
+.bottom {
+	bottom: 40px !important;
+	transition: bottom 0.5s;
+}
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/img_effect.js"></script>
+<script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="source/jquery.fancybox.pack.js"></script>
+	
+
+<script>
+	$('document').ready(function(){
+		//$('.top').hide();
+		
+	
+		//頁面向下捲動
+		$('header a').click(function(){
+			var target = $(this).attr('click-target');//先找出目標是誰
+			var h =$(target).offset().top;//找出目標距離最上方有多遠
+		
+			$('html, body').animate({
+				scrollTop: h-100
+				}, 1500);
+			});
+			
+		//top 向上捲動
+		$(".top a").click(function(){
+			$('html, body').animate({
+				scrollTop: 0
+			}, 500);
+		});
+		
+		//top 出現消失
+		$(window).scroll(function(){
+			var sh = $(window).scrollTop();
+			
+			<!-- if (sh > 550) { -->
+				<!-- $('.top').a({bottom:'40px'}, 500); -->
+				<!-- } else { -->
+				<!-- $('.top').animate({bottom:'40px'}, 500); -->
+				<!-- } -->
+			
+			if (sh > 550) {
+				$('.top').addClass('bottom');
+				} else {
+				$('.top').removeClass('bottom');
+				}
+		
+		});
+		
+		$('.fancybox').fancybox();
+		
+	
+	});
+</script>
+</head>
+<body>
+<header class="full-width clearfix">
+	<div class="fixed-width">
+		<h1>offset</h1>
+		<ul>
+		<li><a href="#"click-target="#contentA">Nav1</a></li>
+		<li><a href="#"click-target="#contentB">Nav2</a></li>
+		<li><a href="#"click-target="#contentC">Nav3</a></li>
+		<li><a href="#"click-target="#contentD">Nav4</a></li>
+		<li><a href="#"click-target="#contentE">Nav5</a></li>
+		</ul>
+	</div>
+</header>
+<div class="full-width clearfix content" id="contentA">
+	<div class="fixed-width">
+		<h2>Nav1</h2>
+		<div>
+			<div class="img">
+				<a class="fancybox" href="images/1a.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="images/1a.jpg" alt="" /></a>
+				<!-- <a href="images/1a.jpg"></a><img src="images/1a.jpg"> -->
+				</div>
+			<p>I have a sentimental weakness for my children and I spoil them, as you can see.</p>
+			<p>They talk when they should listen. I want your answer and the money by noon tomorrow. And one more thing. Don't you contact me again, ever.</p>
+			<p>ever. From now on, you deal with Turnbull. I know it was you, Fredo. </p>
+			<p>You broke my heart. You broke my heart! The hotel, the casino. The Corleone Family wants to buy you out.</p>
+		</div>
+	</div>
+</div>
+<div class="full-width clearfix content" id="contentB">
+	<div class="fixed-width">
+		<h2>Nav2</h2>
+		<div>
+			<div class="img">
+			<a class="fancybox" href="images/2a.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="images/2a.jpg" alt="" /></a>
+			<!-- <a  class="fancybox" href="images/2a.jpg"></a><img src="images/2a.jpg"> -->
+			</div>
+			<p>I have a sentimental weakness for my children and I spoil them, as you can see.</p>
+			<p>They talk when they should listen. I want your answer and the money by noon tomorrow. And one more thing. Don't you contact me again, ever.</p>
+			<p>ever. From now on, you deal with Turnbull. I know it was you, Fredo. </p>
+			<p>You broke my heart. You broke my heart! The hotel, the casino. The Corleone Family wants to buy you out.</p>
+		</div>
+	</div>
+</div>
+<div class="full-width clearfix content" id="contentC">
+	<div class="fixed-width">
+		<h2>Nav3</h2>
+		<div>
+			<div class="img">
+			<a class="fancybox" href="images/3a.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="images/3a.jpg" alt="" ></a>
+			<!-- <a href="images/3a.jpg"></a><img src="images/3a.jpg"> -->
+			</div>
+			<p>I have a sentimental weakness for my children and I spoil them, as you can see.</p>
+			<p>They talk when they should listen. I want your answer and the money by noon tomorrow. And one more thing. Don't you contact me again, ever.</p>
+			<p>ever. From now on, you deal with Turnbull. I know it was you, Fredo. </p>
+			<p>You broke my heart. You broke my heart! The hotel, the casino. The Corleone Family wants to buy you out.</p>
+		</div>
+	</div>
+</div>
+<div class="full-width clearfix content" id="contentD">
+	<div class="fixed-width">
+		<h2>Nav4</h2>
+		<div>
+			<div class="img">
+			<a class="fancybox" href="images/ss.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="images/ss.jpg" alt="" /></a>
+			<!-- <a href="images/ss.jpg"></a><img src="images/ss.jpg"> -->
+			</div>
+			<p>I have a sentimental weakness for my children and I spoil them, as you can see.</p>
+			<p>They talk when they should listen. I want your answer and the money by noon tomorrow. And one more thing. Don't you contact me again, ever.</p>
+			<p>ever. From now on, you deal with Turnbull. I know it was you, Fredo. </p>
+			<p>You broke my heart. You broke my heart! The hotel, the casino. The Corleone Family wants to buy you out.</p>
+		</div>
+	</div>
+</div>
+<div class="full-width clearfix content" id="contentE">
+	<div class="fixed-width">
+		<h2>Nav5</h2>
+		<div>
+			<div class="img">
+			<a class="fancybox" href="images/5a.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="images/5a.jpg" alt="" /></a>
+			<!-- <a href="images/5a.jpg"></a><img src="images/5a.jpg"> -->
+			</div>
+			<p>I have a sentimental weakness for my children and I spoil them, as you can see.</p>
+			<p>They talk when they should listen. I want your answer and the money by noon tomorrow. And one more thing. Don't you contact me again, ever.</p>
+			<p>ever. From now on, you deal with Turnbull. I know it was you, Fredo. </p>
+			<p>You broke my heart. You broke my heart! The hotel, the casino. The Corleone Family wants to buy you out.</p>
+		</div>
+	</div>
+</div>
+<footer class="full-width">
+	<div class="fixed-width">
+		Copyright&copy 2020 Solid All Rights Reserved.
+	</div>
+</footer>
+<div class="top">
+	<a href="#">Top</a>
+</div>
+
+
+</body>
+</html>
